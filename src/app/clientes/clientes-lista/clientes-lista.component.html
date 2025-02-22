@@ -1,0 +1,72 @@
+<h1 class="mt-4">Dominios Processados</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="com-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+        {{ mensagemSucesso }}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="mensagemErro">
+        {{ mensagemErro }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-warning mb-3" (click)="novoCadastro()">
+        <i class="fa fa-plus"></i>Novo
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Dominio</th>
+            <th>Deletar</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of dominio">
+              <td>{{ cliente.id }}</td>
+              <td><a href="http://{{ cliente.dominio }}" target="_blank" rel="noopener noreferrer">{{ cliente.dominio }}</a></td>
+              <td>
+                <button class="btn btn-primary" hidden
+                    routerLink="/clientes/form/{{ cliente.id }}">
+                  <i class="fa fa-edit"></i>
+                </button>
+
+                <button class="btn btn-danger" (click)="preparaDelecao(cliente)"
+                        data-toggle="modal" data-target="#modalDelecao">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="modalDelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1>Confirmação</h1>
+        </div>
+        <div class="modal-body" *ngIf="clienteSelecionado">
+            Tem certeza que deseja deletar o dominio <a href="http://{{ clienteSelecionado.dominio }}" target="_blank" rel="noopener noreferrer">{{ clienteSelecionado.dominio }}</a>?
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" (click)="deletarCliente()" data-dismiss="modal">Confirmar</button>
+          <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

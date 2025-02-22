@@ -1,0 +1,40 @@
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">INFORMAÇÕES</div>
+                <a class="nav-link" routerLink="/home">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-regular fa-compass"></i></div>
+                    Sobre
+                  </a>
+                <div class="sb-sidenav-menu-heading">SERVIÇOS</div>
+                <a class="nav-link collapsed" routerLink="/clientes"
+                  data-toggle="collapse" data-target="#collapseLayouts"
+                  aria-expanded="false" aria-controls="collapseLayouts"
+                    ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    Dominios
+                  </a>
+
+                  <a class="nav-link collapsed" routerLink="/inventor-data"
+                  data-toggle="collapse" data-target="#collapseLayouts"
+                  aria-expanded="false" aria-controls="collapseLayouts"
+                    ><div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
+                    Dados Sensíveis Processados
+                  </a>
+
+                  <div class="sb-sidenav-menu-heading">Logout</div>
+                  <a class="nav-link collapsed" (click)="logout()" href="#"
+                  data-toggle="collapse" data-target="#collapseLayouts"
+                  aria-expanded="false" aria-controls="collapseLayouts"
+                    ><div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                    Sair
+                  </a>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Usuário Logado:</div>
+            {{ usuarioLogado }}
+        </div>
+    </nav>
+</div>
